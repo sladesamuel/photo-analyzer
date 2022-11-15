@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Amazing Photo Analyser</title>
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<style>
+		h1 {
+			font: arial;
+			font-size: 40px;
+			margin: 20px;
+		}
+
+		div {
+			width: 800px;
+			border: none;
+			padding: 30px;
+			margin: 20px;
+		}
+	</style>
+	<h1>Photo Analyser</h1>
+	<div>
+		<div>
+			<label for="lambdaUrl">Your Lambda Url</label>
+			<input type="text" id="lambdaUrl" class="form-control"
+				value="https://opkjlvahkbqolpxd3uvajy2w440rhuuy.lambda-url.eu-west-2.on.aws/">
+			<br>
+			<label for="photoFileName">Photo File Name (in S3 Bucket)</label>
+			<input type="text" id="photoFileName" class="form-control" value="Photos/">
+			<br>
+			<label class="checkbox-inline"><input type="checkbox" id="showFaces" value="true">Faces</label>
+			<label class="checkbox-inline"><input type="checkbox" id="showEmot" value="true">Emotions</label>
+			<label class="checkbox-inline"><input type="checkbox" id="showGenderAge" value="true">Gender & Age</label>
+			<label class="checkbox-inline"><input type="checkbox" id="showEyes" value="true">Eyes Closed</label>
+			<label class="checkbox-inline"><input type="checkbox" id="showGlasses" value="true">Glasses</label>
+			<label class="checkbox-inline"><input type="checkbox" id="showBeard" value="true">Beards</label>
+			<br>
+			<br>
+			<button type="button" class="btn btn-success" onclick="loadImage()">Load Image</button>
+			<button type="button" class="btn btn-primary" onclick="submitButton()">Go Analyse!</button>
+			<br>
+
+		</div>
+	</div>
+	<div id="photoImgOutput">
+		<canvas id="photoCanvas" style="border:1px solid #d3d3d3;"></canvas>
+
+		<img id="photoImg" />
+	</div>
+
+	<h1>Raw JSON Output</h1>
+	<div id="photoOutput">
+	</div>
+
+	<script src="js/photoAnalyser.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
